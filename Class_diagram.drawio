@@ -1,9 +1,109 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 YaBrowser/25.8.0.0 Safari/537.36" version="28.2.5">
   <diagram name="Страница — 1" id="x3rRoLcgHnf8GeJpn5Qq">
-    <mxGraphModel>
+    <mxGraphModel dx="1489" dy="817" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-1" value="MeTcpServer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="240" height="260" as="geometry">
+            <mxRectangle x="80" y="80" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-2" value="&lt;div&gt;&lt;div&gt;- mTcpServer: QTcpServer*&lt;/div&gt;&lt;div&gt;- clients: QList&amp;lt;MyClient*&amp;gt;&lt;/div&gt;&lt;div&gt;- clientCounter: int&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-1">
+          <mxGeometry y="26" width="240" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-1">
+          <mxGeometry y="80" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-4" value="&lt;div&gt;+ MyTcpServer(QObject* parent = nullptr)&lt;/div&gt;&lt;div&gt;+ ~MyTcpServer()&lt;/div&gt;&lt;div&gt;+ startServer(port: quint16): bool&lt;/div&gt;&lt;div&gt;+ stopServer(): void&lt;/div&gt;&lt;div&gt;+ slotNewConnection(): void&lt;/div&gt;&lt;div&gt;+ slotServerRead(clientId: int): void&lt;/div&gt;&lt;div&gt;+ slotClientDisconnected(): void&lt;/div&gt;&lt;div&gt;+ sendToClient(clientId: int, data: QByteArray): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-1">
+          <mxGeometry y="88" width="240" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-9" value="MyClient" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="230" height="220" as="geometry">
+            <mxRectangle x="80" y="80" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-10" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;- mTcpSocket: QTcpSocket*&lt;/div&gt;&lt;div&gt;- login: QString&lt;/div&gt;&lt;div&gt;- id_connection: int&lt;/div&gt;&lt;div&gt;- isAuthenticated: bool&lt;/div&gt;&lt;div&gt;- userId: int&lt;/div&gt;&lt;div&gt;- connectionTime: QDateTime&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-9">
+          <mxGeometry y="26" width="230" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-9">
+          <mxGeometry y="120" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-12" value="&lt;div&gt;&lt;div&gt;+ MyClient(socket: QTcpSocket*, id: int)&lt;/div&gt;&lt;div&gt;+ ~MyClient()&lt;/div&gt;&lt;div&gt;+ is_auth(): bool&lt;/div&gt;&lt;div&gt;+ sendData(data: QByteArray): void&lt;/div&gt;&lt;div&gt;+ getLogin(): QString&lt;/div&gt;&lt;div&gt;+ setAuth(status: bool): void&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-9">
+          <mxGeometry y="128" width="230" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-13" value="FunctionsForServer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="300" height="200" as="geometry">
+            <mxRectangle x="80" y="80" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-14" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-13">
+          <mxGeometry y="26" width="300" height="4" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-13">
+          <mxGeometry y="30" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-16" value="&lt;div&gt;&lt;font&gt;+ parsing(clientId: int, message: QString): QByteArray&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ auth(clientId: int, login: QString, password: QString): QByteArray&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ reg(login: QString, password: QString, email: QString): QByteArray&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ lookupstat(userId: int): QByteArray&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ lookallstat(): QByteArray&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ updateStats(userId: int, data: QJsonObject): bool&lt;/font&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-13">
+          <mxGeometry y="38" width="300" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-21" value="MyDB" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="517" y="360" width="310" height="260" as="geometry">
+            <mxRectangle x="80" y="80" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-22" value="&lt;div&gt;- db: QSqlDatabase&lt;/div&gt;&lt;div&gt;- instance: MyDB*&lt;/div&gt;&lt;div&gt;- isConnected: bool&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-21">
+          <mxGeometry y="26" width="310" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-21">
+          <mxGeometry y="80" width="310" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-24" value="&lt;div&gt;+ getInstance(): MyDB*&lt;/div&gt;&lt;div&gt;+ connectDB(): bool&lt;/div&gt;&lt;div&gt;+ disconnectDB(): void&lt;/div&gt;&lt;div&gt;+ userExists(login: QString): bool&lt;/div&gt;&lt;div&gt;+ authenticate(login: QString, password: QString): int&lt;/div&gt;&lt;div&gt;+ registerUser(login: QString, password: QString, email: QString): bool&lt;/div&gt;&lt;div&gt;+ getUserStats(userId: int): QJsonObject&lt;/div&gt;&lt;div&gt;+ getAllStats(): QJsonArray&lt;/div&gt;&lt;div&gt;+ updateUserStats(userId: int, stats: QJsonObject): bool&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-21">
+          <mxGeometry y="88" width="310" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-29" value="MyDB_destroyer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="670" width="200" height="120" as="geometry">
+            <mxRectangle x="80" y="80" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-30" value="&lt;div&gt;- instance: MyDB*&lt;/div&gt;&lt;div&gt;- destroyer: MyDB_destroyer*&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-29">
+          <mxGeometry y="26" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-29">
+          <mxGeometry y="60" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-32" value="&lt;div&gt;+ getInstance(): MyDB_destroyer*&lt;/div&gt;&lt;div&gt;+ initialize(dbInstance: MyDB*): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QArgqOwHSf_ErJJtPbi7-29">
+          <mxGeometry y="68" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-33" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0;exitY=0.042;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="QArgqOwHSf_ErJJtPbi7-10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="340" as="sourcePoint" />
+            <mxPoint x="320" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-35" value="" style="endArrow=none;html=1;rounded=0;exitX=0.4;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="QArgqOwHSf_ErJJtPbi7-13" target="QArgqOwHSf_ErJJtPbi7-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="340" as="sourcePoint" />
+            <mxPoint x="470" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-36" value="" style="endArrow=none;html=1;rounded=0;exitX=0.999;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QArgqOwHSf_ErJJtPbi7-16" target="QArgqOwHSf_ErJJtPbi7-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="330" as="sourcePoint" />
+            <mxPoint x="440" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-37" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.001;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="QArgqOwHSf_ErJJtPbi7-16" target="QArgqOwHSf_ErJJtPbi7-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="440" as="sourcePoint" />
+            <mxPoint x="590" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-39" value="1*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="487" y="110" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QArgqOwHSf_ErJJtPbi7-43" value="1&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="30" height="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
